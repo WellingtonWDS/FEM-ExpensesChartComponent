@@ -1,79 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-  
-  
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/style.css">
-  
-  <title>Frontend Mentor | Expenses chart component</title>
-  
-</head>
-<body>
-  
-  <main class="content">
-    <!-- Top Card -->
-    <section class="top-card">
-      
-      <!-- Total balance -->
-      <div class="total-balance">  
-        <p>My balance</p>
-        <h1>$921.48</h1>
-      </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-      <!-- Circles -->
-      <figure class="circles">
-        <img src="./images/logo.svg" alt="">
-      </figure>
-    </section>
-    
-    <!-- Main card -->
-    <section class="main-card mt">
-      <h1 class="title">Spending - Last 7 days</h1>
-      
-      <!-- Chart -->
-      <div class="chart">
-        <canvas class="bar-chart"></canvas>
-      </div>
-      
-      <!-- Footer -->
-      <section class="mt footer">
-        <p class="total">Total this month: </p>
-        <div class="total-month">
-          <h1>$478.33</h1>
-          <div class="last-month">
-            <p>+2.4%</p>
-            <p>from last month</p>
-          </div>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Frontend Mentor | Expenses chart component</title>
+  </head>
+  <body>
+    <main class="content">
+      <!-- Top Card -->
+      <section class="top-card">
+        <!-- Total balance -->
+        <div class="total-balance">
+          <p>My balance</p>
+          <h1>$921.48</h1>
         </div>
-        
+
+        <!-- Circles -->
+        <figure class="circles">
+          <img src="./images/logo.svg" alt="" />
+        </figure>
       </section>
-    </section>
-  </main>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
-    Coded by <a href="https://www.linkedin.com/in/wellington-duarte-santos-934ba61aa/">Wellington Duarte Santos</a>.
-  </div>
-  <script type="text/javascript" src="./data.json"></script>
-  <script type="text/javascript" src="./js/index.js"></script>
-  
-  <!--CHART JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- JS -->
-  <script>
 
-    var day1, day2, day3, day4, day5, day6, day7;
-    var money1, money2, money3, money4, money5, money6, money7;
+      <!-- Main card -->
+      <section class="main-card mt">
+        <h1 class="title">Spending - Last 7 days</h1>
 
-    data = fetch('./data.json')
+        <!-- Chart -->
+        <div class="chart">
+          <canvas class="bar-chart"></canvas>
+        </div>
+
+        <!-- Footer -->
+        <section class="mt footer">
+          <p class="total">Total this month:</p>
+          <div class="total-month">
+            <h1 id="total-amount">$478.33</h1>
+            <div class="last-month">
+              <p>+2.4%</p>
+              <p>from last month</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.linkedin.com/in/wellington-duarte-santos-934ba61aa/"
+        >Wellington Duarte Santos</a
+      >.
+    </div>
+    <script type="text/javascript" src="./data.json"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+
+    <!--CHART JS-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+      integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- JS -->
+    <script>
+      var day1, day2, day3, day4, day5, day6, day7;
+      var money1, money2, money3, money4, money5, money6, money7;
+
+      data = fetch("./data.json")
         .then((response) => response.json())
         .then((data) => {
           day1 = data[0].day;
@@ -92,40 +107,58 @@
           money6 = data[5].amount;
           money7 = data[6].amount;
 
+          let totalAmount = 0;
+
+          for (let i = 0; i < 7; i++) {
+            totalAmount += data[i].amount;
+          }
+
+          console.log(totalAmount);
+
           var ctx = document.getElementsByClassName("bar-chart");
-      
-          var chartGraph = new Chart( ctx, {
-              type: 'bar',
-              data: {
-                labels: [day1, day2, day3, day4, day5, day6, day7],
-                datasets: [{
-                  label: 'Amount spent',
-                  data: [money1, money2, money3, money4, money5, money6, money7],
-                  backgroundColor:  [
-                    'rgba(236, 119, 95, 1)',
+          var total = document.getElementById("total-amount");
+
+          total.innerHTML = `$ ${totalAmount}`;
+
+          var chartGraph = new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: [day1, day2, day3, day4, day5, day6, day7],
+              datasets: [
+                {
+                  label: "Amount spent",
+                  data: [
+                    money1,
+                    money2,
+                    money3,
+                    money4,
+                    money5,
+                    money6,
+                    money7,
                   ],
+                  backgroundColor: ["rgba(236, 119, 95, 1)"],
                   borderRadius: 10,
-                }],
-              },
-              options: {
-                scales: {
-                  y:{
-                    beginAtZero: true,
-                    grid:{
-                      display: false
-                    }
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false,
                   },
-                  x:{
-                    beginAtZero: true,
-                    grid:{
-                      display: false
-                    }
-                  }
-                }
-            }
+                },
+                x: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false,
+                  },
+                },
+              },
+            },
           });
         });
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>

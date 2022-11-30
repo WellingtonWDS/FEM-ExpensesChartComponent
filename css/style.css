@@ -1,111 +1,128 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
-body{
-    background-color: hsl(27, 66%, 92%);
-    font-family: 'DM Sans', sans-serif;
+body {
+  background-color: hsl(27, 66%, 92%);
+  font-family: "DM Sans", sans-serif;
 }
 
-.mt{
-    margin-top: 20px;
+.mt {
+  margin-top: 20px;
 }
 
-.content{
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5% auto;
+}
+
+.total-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 25px;
+  width: 35%;
+  color: white;
+  padding: 2%;
+}
+
+.circles {
+  display: flex;
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: baseline;
+  width: 35%;
+  background: white;
+  border-radius: 25px;
+  padding: 2%;
+}
+
+.chart {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+}
+
+.total {
+  color: hsl(30, 1%, 48%);
+}
+
+.total-month {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.total-month > h1 {
+  font-size: 32px;
+}
+
+.last-month {
+  text-align: end;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 1024px) {
+  .top-card {
+    width: 70%;
+    padding: 4%;
+  }
+
+  .main-card {
+    width: 70%;
+    padding: 4%;
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    padding: 20px;
+  }
+  .top-card {
+    width: 100%;
+    margin-top: 20%;
+  }
+
+  .main-card {
+    width: 100%;
+  }
+
+  .total-month {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 5% auto
-}
+    text-align: center;
+  }
 
-.total-balance{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+  .total {
+    text-align: center;
+  }
 
-.top-card{
-    display: flex;
-    justify-content: space-between;
-    background-color: hsl(10, 79%, 65%);
-    border-radius: 25px;
-    width: 35%;
-    color: white;
-    padding: 2%;
-}
-
-.circles{
-    display: flex;
-}
-
-.main-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: baseline;
-    width: 35%;;
-    background: white;
-    border-radius: 25px;
-    padding: 2%;
-
-}
-
-.chart{
-    width: 100%;
-}
-
-.footer{
-    width: 100%;
-}
-
-.total{
-    color: hsl(30, 1%, 48%);
-}
-
-.total-month{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.total-month>h1{
-    font-size: 32px;
-}
-
-.last-month{
-    text-align: end;
-}
-
-.attribution{ 
-    font-size: 11px; 
-    text-align: center; 
-}
-
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
-}
-
-@media (max-width: 1024px){
-    .top-card{
-        width: 70%;
-        padding: 4%;
-    }
-
-    .main-card{
-        width: 70%;
-        padding: 4%;
-    }
-}
-
-@media (max-width: 425px){
-    .top-card{
-        width: 90%;
-        margin-top: 20%;
-    }
-
-    .main-card{
-        width: 90%;
-    }
+  .last-month {
+    text-align: center;
+  }
 }
